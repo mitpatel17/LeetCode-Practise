@@ -1,0 +1,36 @@
+import java.util.Arrays; 
+
+class Solution {
+    public int[] sortedSquares(int[] nums) {
+        
+        int[] squared = new int [nums.length];
+        int p1 = 0;
+        int p2 = nums.length - 1;
+        
+        for (int i=p2; i >= 0; i --){
+            
+            int p1squared = nums[p1]*nums[p1];
+            int p2squared = nums[p2]*nums[p2];
+            
+            if (p1squared >= p2squared){
+                squared[i] = p1squared;
+                p1++;
+            }
+            
+            if (p2squared > p1squared){
+                squared[i] = p2squared;
+                p2--;
+            }
+            
+            
+            
+        }
+        
+    
+        return squared;
+        
+        
+        
+        
+    }
+}
