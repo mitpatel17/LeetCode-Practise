@@ -1,0 +1,25 @@
+class Solution {
+    public int thirdMax(int[] nums) {
+        
+        Arrays.sort(nums);
+        
+        int curr = nums[nums.length-1];
+        int max = 1;
+        int maxnum = nums[nums.length-1];
+        
+        for (int i = nums.length-2; i >= 0; i--){
+            
+            if (nums[i] != curr){
+                max++;
+                curr = nums[i];
+            }
+            
+            if (max == 3){
+                return curr;
+            }
+        }
+        
+        return maxnum;
+        
+    }
+}
