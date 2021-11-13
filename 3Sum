@@ -1,0 +1,51 @@
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        
+        List<List<Integer>> ans = new ArrayList<List<Integer>>();
+        Arrays.sort(nums);
+        
+        for (int i = 0; i < nums.length; i++){
+            
+            int target = 0 - nums[i];
+            int end = nums.length - 1;
+            int j = 0;
+            
+            while (j < end){
+                
+                if (j == i){
+                    j++;
+                }
+                else if (end == i){
+                    end--;
+                }
+                else {
+    
+                    if (nums[j] + nums[end] == target){
+                        
+                        int[] comb = {nums[i],nums[j],nums[end]};
+                        Arrays.sort(comb);
+                        System.out.println(Arrays.toString(comb));
+                        
+                        if (!ans.contains(Arrays.asList(comb[0],comb[1],comb[2]))){
+                            ans.add(Arrays.asList(comb[0],comb[1],comb[2]));
+                        }
+                    
+                        break;
+                        
+                    }
+                    else if (nums[j] + nums[end] < target){
+                        j++;
+                    }
+                    else if (nums[j] + nums[end] > target){
+                        end--;
+                    }
+                    
+                }
+                 
+            }
+            
+        }
+    
+        return ans;
+    }
+}
